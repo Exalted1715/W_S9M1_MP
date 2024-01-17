@@ -41,12 +41,17 @@ describe('Auth component', () => {
     // ✨ assert that the input has the value entered (done for you)
     expect(userInput).toHaveValue('gabe')
     // ✨ type some text in the password input
+    await user.type(passInput, '1234')
     // ✨ assert that the input has the value entered
-    expect(true).toBe(false) // DELETE
+    expect(userInput).toHaveValue('1234')
+   screen.debug()
   })
   test('[2] Submitting form clicking button shows "Please wait..." message', async () => {
     // ✨ type whatever values on username and password inputs
+    await user.type(userInput, 'gabe')
+    await user.type(passInput, '1234')
     // ✨ click the Login button
+    await user.click(loginBtn)
     // ✨ assert that the "Please wait..." message is visible in the DOM
     expect(true).toBe(false) // DELETE
   })
